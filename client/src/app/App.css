@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+body{
+  
+  font-family: 'Montserrat';
+  background-color: #181818;
+  color :#f2e3ca;
+}
+
+.main-content{
+  margin-top: 1rem;
+  display: flex;
+  color:#181818;
+  margin-left:1rem;
+
+}
+
+.blocks{
+  display: grid;
+  grid-template: 
+      "a a b" 100%
+      "c c c" 100%;
+}
+/*shortcut handmade */
+
+
+/*end handmade */
+
