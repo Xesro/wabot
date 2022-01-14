@@ -1,27 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+*{
+  box-sizing: border-box;
+}
 body{
   
-  font-family: 'Montserrat';
+  font-family: 'Montserrat' !important;
   background-color: #181818;
   color :#f2e3ca;
 }
 
 .main-content{
-  margin-top: 1rem;
-  display: flex;
+
   color:#181818;
-  margin-left:1rem;
-
-}
-
-.blocks{
+  padding: 15px ;
   display: grid;
+  gap: 10px;
   grid-template: 
-      "a a b" 100%
-      "c c c" 100%;
+  'strat display logs'  
+  'chart  chart  logs' 1fr / 500px 500px 1fr;
+
+  
+
 }
+
 /*shortcut handmade */
 
 
 /*end handmade */
 
+/** Strategy Manager **/
+.colds{
+  grid-area: display ;
+  color: white;
+}
+.card{
+  background-color: #242424;
+  border-radius: 15px;
+  padding: 10px;
+  min-height: 350px;
+}
+.strategy{
+  grid-area: strat;
+  color :#f2e3ca;
+
+  
+}
+
+.content{
+  background-color: #2e2d2d;
+  padding: 10px;
+  margin: 10px;
+  border-radius:10px;
+  height: 222px;
+  overflow: scroll;
+}
+.icon:hover{
+    color: rgba(155, 112, 176, 0.742);
+}
+
+.header{
+
+    display: flex;
+    font-size: 30px;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+.title-strategy{
+  padding: 2px 5px;
+  background: linear-gradient( rgb(241, 156, 8),50%, rgb(180, 124, 199));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-radius: 10px;
+ 
+}
+.header > div {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}

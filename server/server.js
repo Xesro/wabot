@@ -5,6 +5,8 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const passport   = require('passport')
+const loginRouter = require('./routes/login')
+
 
 require('dotenv').config({path : './config/.env'});
 
@@ -19,6 +21,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 //await loaders.init();
+app.use('/login',loginRouter)
 
 app.listen(PORT, err => {
     if (err) {
