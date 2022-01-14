@@ -9,17 +9,16 @@ function StrategyForm({ setMakeForm }) {
     const [currency, setCurrency] = useState('none');
     const [strategy, setStrategy] = useState('none');
     const dispatch = useDispatch();
-    
-    
+
+
     function setupStrategy(element) {
-        console.log(element)
         setStrategy(element);
         if (strategy === 'none') return;
 
     }
     function onAdd() {
         // check if one of the parameter are empty 
-        if(money === 0 || currency ==='none' || strategy === 'none') return; 
+        if (money === 0 || currency === 'none' || strategy === 'none') return;
         const stratObject = {
             name: strategy,
             money: money,
@@ -31,26 +30,23 @@ function StrategyForm({ setMakeForm }) {
     }
 
     return (<div className="form">
-        <div className="align-parameter">
-            <div className='block'>
-                <label>Money</label>
+        <div className="form-info">
+            <div className="align-parameter">
                 <input type='number' onChange={(event) => setMoney(event.target.value)}
                     placeholder='money' value={money}>
                 </input>
+                <SelectTag placeholder={'Currency'} lst={currencyMock}
+                    value={currency}
+                    setValue={(newValue) => setCurrency(newValue)} />
+
+                <SelectTag placeholder={'Strategy'} lst={strategyMock}
+                    value={strategy}
+                    setValue={setupStrategy} />
             </div>
-            <SelectTag label={'Currency'} lst={currencyMock}
-                value={currency}
-                setValue={(newValue) => setCurrency(newValue)} />
-
-            <SelectTag label={'Strategy'} lst={strategyMock}
-                value={strategy}
-                setValue={setupStrategy} />
+            {strategy !== 'none' && <Parameter />}
         </div>
-        {strategy !== 'none' && <Parameter />}
-
         <div className='buttons'>
-            <div onClick={() => setMakeForm()} className='cancel button'>Cancel</div>
-            <div onClick={onAdd} className='add button'>Add</div>
+            <button onClick={onAdd} className='add '>Add</button>
         </div>
     </div>)
 }
@@ -62,18 +58,16 @@ function Parameter() {
 }
 
 
-function SelectTag({ label, lst, value, setValue }) {
+function SelectTag({ placeholder, lst, value, setValue }) {
 
     return (
-        <div className="block">
-            <label> {label} </label>
-            <select value={value} onChange={(event) => setValue(event.target.value)}>
-                <option value='none'></option>
-                {lst.map((
-                    element, index) => <option key={index}
-                        value={element.value}>{element.name}</option>)}
-            </select>
-        </div>)
+        <select placeholder={placeholder} value={value} onChange={(event) => setValue(event.target.value)}>
+            <option value='none'>{placeholder}</option>
+            {lst.map((
+                element, index) => <option key={index}
+                    value={element.value}>{element.name}</option>)}
+        </select>
+    )
 }
 
 
