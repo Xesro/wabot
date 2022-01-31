@@ -1,12 +1,9 @@
 "use strict"
 
-//const loaders = require('./loaders/index')
 const express = require('express');
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const passport   = require('passport')
-const loginRouter = require('./routes/login')
-
 
 require('dotenv').config({path : './config/.env'});
 
@@ -16,12 +13,16 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized:true
+})); // session secret
+
+require('./routes')(app);
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
-//await loaders.init();
-app.use('/login',loginRouter)
 
 app.listen(PORT, err => {
     if (err) {
@@ -31,4 +32,4 @@ app.listen(PORT, err => {
     console.log(`Your server is ready ! Listen on port : ${PORT}`);
 });
 
-module.exports = app;
+module.export = app;

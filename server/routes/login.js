@@ -1,16 +1,16 @@
 'use strict'
 
-var express = require('express');
-var router = express.Router();
+const controllers = require("../controllers");
+const router = require('express').Router();
+const passport = require("passport");
+const User = require('../models').User;
 
+require('../config/passport/passport')(passport, User);
 
-
-router.post('/identification',function(req,res){
-
-    console.log(req.params)
-    console.log(req.body)
-    console.log("demande de login");
-})
-
+router.route('/identification').post( passport.authenticate('local-signin', {
+        successRedirect: console.log("ok"),
+        failureRedirect: console.log('ko')
+    }
+));
 
 module.exports = router;

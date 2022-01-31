@@ -1,33 +1,42 @@
-const {DataTypes} = require("sequelize");
-module.exports = function(sequelize, Sequelize) {
+const { Model } = require('sequelize');
 
-    return sequelize.define('user', {
+class User extends Model {
+    static init(sequelize, DataTypes) {
+        return super.init(
+            {
+                id: {
+                    autoIncrement: true,
+                    primaryKey: true,
+                    type: DataTypes.INTEGER,
+                },
 
-        id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: DataTypes.INTEGER,
-        },
+                username: {
+                    type: DataTypes.STRING,
+                    notEmpty: true
+                },
 
-        username: {
-            type: DataTypes.STRING,
-            notEmpty: true
-        },
+                password: {
+                    type: DataTypes.STRING,
+                    allowNull: false
+                },
 
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+                api_key: {
+                    type: DataTypes.STRING,
+                    notEmpty: true
+                },
 
-        api_key: {
-            type: DataTypes.STRING,
-            notEmpty: true
-        },
-
-        secret_key: {
-            type: DataTypes.STRING,
-            notEmpty: true
-        },
-
-    });
+                secret_key: {
+                    type: DataTypes.STRING,
+                    notEmpty: true
+                },
+            },
+            {
+                tableName: 'users',
+                timestamps: false,
+                sequelize,
+            },
+        );
+    }
 }
+
+module.exports = User;
