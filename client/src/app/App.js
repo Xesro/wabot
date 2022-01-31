@@ -39,7 +39,7 @@ function App() {
 function Login() {
   useEffect(() => {
 
-    fetch("http://localhost:8080")
+    fetch("http://localhost:3000")
       .then(response => console.log(response))
       .catch(error => console.log(error.message));
 

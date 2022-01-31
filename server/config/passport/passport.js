@@ -13,8 +13,9 @@ module.exports = function(passport, user) {
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
 
-
         function(req, username, password, done) {
+
+            //console.log(bCrypt.hashSync(password)) //pour générer un hash si on veut add un nouveau user
 
             let User = user;
 
