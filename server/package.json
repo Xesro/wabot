@@ -18,6 +18,7 @@
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
+    "node-binance-api": "^0.13.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "sequelize": "^6.12.5",
