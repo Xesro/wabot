@@ -1,10 +1,16 @@
-# add a strategy 
-```
+# JSON CONVENTION 
+
+
+- # add strategy 
+```javascript
+route  : "/strategy/add"
 {
     back : Boolean 
     parameters  :  Array 
-    currency : string
-    money : float
-    time-frame : string
+    currency : String
+    money : Float
+    time_frame : String 
 }
 ```
+
+- # add strategy 
