@@ -12,7 +12,7 @@ class User extends Model {
 
                 username: {
                     type: DataTypes.STRING,
-                    notEmpty: true
+                    allowNull: false,
                 },
 
                 password: {
@@ -22,12 +22,12 @@ class User extends Model {
 
                 api_key: {
                     type: DataTypes.STRING,
-                    notEmpty: true
+                    allowNull: false,
                 },
 
                 secret_key: {
                     type: DataTypes.STRING,
-                    notEmpty: true
+                    allowNull: false,
                 },
             },
             {
