@@ -19,5 +19,7 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  }
+  },
+  "webhookURL" : "https://discord.com/api/webhooks/939510094733914132/OdzpXeb54u-qHDpLePvEu9UVEaEXbU8oYFWmwagKqmWIel6IdkqY_IPKSKHFJvFcZ-9_"
+
 }
