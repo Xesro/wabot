@@ -1,17 +1,19 @@
 
 
-const BackTestCandleProvider = require('../provider/backtest-candle-provider')
-const LiveCandleProvider = require('../provider/live-candle-provider')
+const BackTestCandleProvider = require('../provider/backtest-candle-provider');
+const LiveCandleProvider = require('../provider/live-candle-provider');
 
-const key = '6qanpPzlVOfZyYFnUMyKgapGF2nxazO0hZUOXCKjdRxMKR2D9fiRJn6cduZeJv87'
-const secret = 'S0aotxEMvsVcOYl2JJj4vkH0LxfBM15ZwAilvpdiTxM13n6EABWeYvAtRxNRAnd6'
+const findStrategy = require('../strategies/stored-strategies');
+const Runner = require('../runner/runner');
+const { NoStrategyFoundException } = require('../strategies/strategy-exception')
+
+
 class RunnerManager {
     constructor() {
-        // subscriber of all created strategies 
         this.liveStrategies = []
         this.backTestStrategies = []
-       // this.subscriber = new BinanceSubscriber(key,secret);
-        this.liveCandleProvider = new LiveCandleProvider(key,secret)
+        this.liveCandleProvider = new LiveCandleProvider();
+        this.backTestCandleProvider = new BackTestCandleProvider();
     }
 
     /**
@@ -19,20 +21,26 @@ class RunnerManager {
      * @param {Strategy} strategy 
      * @param {boolean} back 
      */
-    addLiveStrategy({parameters,currency,money,time_frame}) {
-        const runner =  new Runner(strategy)
-        launcher.subscribe(currency,time_frame)
-        
-        this.strategies.push()
+    addLiveStrategy({ strategyName, parameters, currency, money, time_frame }) {
+        let strategyClass = findStrategy(strategyName);
+        if (!strategyClass) throw new NoStrategyFoundException(strategyName);
+        let strategy = new strategyClass(parameters);
+        let eventName = `candle-${time_frame}-${currency}`;
+        this.liveCandleProvider.addSubscription(eventName, currency, time_frame);
+        const runner = new Runner(strategy);
+        runner.subscribe(eventName)
+        // push avec nouveau id 
+        //this.strategies.push()
     }
-    addBackStrategy({parameters,currency,money,time_frame}){
-        const runner =  new Runner(new Strategy());
-        
-        //let nameEvent = `candle-${}`
-        runner.subscribe(currency,)
+    addBackStrategy({ parameters, currency, money, time_frame }) {
+        //        const runner = new Runner(new Strategy());
+
+    }
+    runStrategy(id) {
+
     }
 
-   
+
 
 }
 
@@ -41,4 +49,4 @@ class RunnerManager {
 
 
 
-module.exports = LauncherManager;
+module.exports = RunnerManager;

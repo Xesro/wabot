@@ -1,11 +1,17 @@
+const Binance = require('node-binance-api');
 
+class CandleProvider {
+  constructor() {
+    this.binance = new Binance();
+    this.subscriptions = new Set();
+  }
 
-class CandleProvider{
-    constructor(key, secret) {
-        this.binance = new Binance().options({
-          APIKEY: `${key}`,
-          APISECRET: `${secret}`
-        });
-        this.subscriptions = new Set();
-      }
+  isNewSubscription(eventName) {
+
+    if (this.subscriptions.has(eventName)) return { new: false }
+    this.subscriptions.add(eventName);
+    return { new: true, eventName: eventName }
+  }
 }
+
+module.exports = CandleProvider; 

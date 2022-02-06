@@ -9,6 +9,14 @@ class Candle extends Model {
                     primaryKey: true,
                     type: DataTypes.INTEGER,
                 },
+                currency : {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                },
+                time_frame : {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                },
 
                 open: {
                     type: DataTypes.DECIMAL,

@@ -1,28 +1,31 @@
+const Logger = require('../logger/logger')
+const event = require('../event/candle-event')
 class Runner {
     /**
      * 
      * @param {Strategy} strategy 
      */
-    constructor(strategy){
+    constructor(strategy) {
         this.strategy = strategy;
-        this.subscriber = undefined; 
-      
+        this.launched = true;
+        this.finished = true;
+
     }
-    subscribe(nameEvent){
-        event.on('nameEvent',(candleDTO)=>{
-            if(finish || lauched){
-               let finish =  await strategy.listen(candleDTO);
+    subscribe(nameEvent) {
+        event.on(nameEvent, async (candleDTO) => {
+            if (this.finished && this.launched) {
+                this.finished = await this.strategy.listen(candleDTO);
             }
-            else{
-                
+            else {
+                Logger.info('runner', `I'm waiting candle bro ! `)
             }
         })
     }
-    run(){
-
+    run() {
+        this.launched = true;
     }
-    stop(){
-
+    stop() {
+        this.launched = false;
     }
 
 }

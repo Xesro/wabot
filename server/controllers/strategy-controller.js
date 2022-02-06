@@ -1,8 +1,8 @@
-const LauncherManager = require('../services/launcher-manager')
+const RunnerManager = require('../services/runner-manager')
 
 class StrategyController {
     constructor() {
-        this.launcherManager = new LauncherManager();
+        this.runnerManager = new RunnerManager();
     }
 
     addStrategy(req, res) {
@@ -10,7 +10,7 @@ class StrategyController {
         //parser la requete 
         // creer la strategy 
         // 
-        this.launcherManager.addBackStrategy(req.body);
+        this.runnerManager.addLiveStrategy(req.body);
         res.statut(200).send();
     }
 
