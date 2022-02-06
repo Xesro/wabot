@@ -10,7 +10,7 @@ class StrategyController {
         //parser la requete 
         // creer la strategy 
         // 
-        // this.launcherManager.a
+        this.launcherManager.addBackStrategy(req.body);
         res.statut(200).send();
     }
 
