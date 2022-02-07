@@ -1,6 +1,7 @@
 
 class Strategy {
     constructor() {
+        parameter:[""]
         //     this.event.on('...',function())
     }
 

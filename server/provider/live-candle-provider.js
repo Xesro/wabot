@@ -13,7 +13,6 @@ class LiveCandleProvider extends CandleProvider {
    * Check if there is one instance of a subscription with currency and time_frame, if not, create a new one and create a new event associated 
    * @param {Float} currency 
    * @param {String} time_frame 
-
    */
   addSubscription(eventName,currency,time_frame) {
     let subscription = this.isNewSubscription(eventName);

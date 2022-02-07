@@ -3,7 +3,7 @@
 const BackTestCandleProvider = require('../provider/backtest-candle-provider');
 const LiveCandleProvider = require('../provider/live-candle-provider');
 
-const findStrategy = require('../strategies/stored-strategies');
+const {findStrategy} = require('../strategies');
 const Runner = require('../runner/runner');
 const { NoStrategyFoundException } = require('../strategies/strategy-exception')
 
