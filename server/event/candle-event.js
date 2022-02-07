@@ -1,16 +1,13 @@
 const EventEmitter = require('events')
-const eventEmitter = new EventEmitter()
-
-
-
-eventEmitter.on('addCandle', () => {
-    console.log('started')
-  })
-  
+const candleEmitter = new EventEmitter();
 
 
 
 
 
 
-module.exports = eventEmitter;
+
+
+
+
+module.exports = candleEmitter;

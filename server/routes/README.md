@@ -1,8 +1,9 @@
 # JSON CONVENTION 
 
 
-- # add strategy 
+- ## add strategy 
 ```javascript
+type : "POST"
 route  : "/strategy/add"
 {
     back : Boolean 
@@ -13,4 +14,4 @@ route  : "/strategy/add"
 }
 ```
 
-- # add strategy 
+- ## add strategy 

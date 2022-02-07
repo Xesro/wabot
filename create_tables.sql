@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `candles` (
     `id` INTEGER NOT NULL auto_increment ,
+    `currency` VARCHAR(50) NOT NULL,
+    `time_frame`VARCHAR(50) NOT NULL, 
     `open` DECIMAL(10,2) NOT NULL,
     `high` DECIMAL(10,2) NOT NULL,
     `low` DECIMAL(10,2) NOT NULL,

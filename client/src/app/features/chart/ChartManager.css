@@ -1,9 +1,0 @@
-.chart-rendering{
-    border-radius: 30px;
-    padding: 5px;
-
-}
-.chart{
-    grid-area: chart;
-    height: 430px;
-  }
