@@ -1,5 +1,5 @@
 const Logger = require('js-logger')
-const sendMessage = require('../discord/webhook-manager');
+const sendMessage = require('../logger/discord/webhook-manager');
 
 Logger.useDefaults();
 

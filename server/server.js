@@ -32,4 +32,8 @@ app.listen(PORT, err => {
     console.log(`Your server is ready ! Listen on port : ${PORT}`);
 });
 
+const OrderHandler = require('./models/handler/order-handler')
+let orderHandler = new OrderHandler()
+orderHandler.updateStatus(1, "canceled")
+
 module.export = app;
