@@ -99,13 +99,13 @@ class BinanceClient {
     }
 
     async isFullyExecuted(response) {
-        setTimeout(
-            async (response) => {
-                let order = await this.binance.futuresOrderStatus('ETHUSDT', {orderID : response.orderId })
-                return order.origQty === order.executedQty;
-            },
-            limitOrderTimeout
-        )
+        let fullyExecuted = new Promise(async function (resolve, reject) {
+            setTimeout(
+                resolve(await getOrderState(response.OrderId)),
+                limitOrderTimeout
+            )
+        })
+
 
         if (fullyExecuted === false) {
             logger.info("limit order not fully executed, all order will be canceled", response, this.strategyId)
@@ -113,6 +113,11 @@ class BinanceClient {
         }
 
         return fullyExecuted;
+    }
+
+    async getOrderState(orderId) {
+        let order = await this.binance.futuresOrderStatus('ETHUSDT', {orderID : orderId })
+        return order.origQty === order.executedQty;
     }
 }
 

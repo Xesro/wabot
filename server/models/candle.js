@@ -52,6 +52,7 @@ class Candle extends Model {
         },
             {
                 tableName: 'candles',
+                underscored: true,
                 timestamps: false,
                 sequelize,
             },
@@ -59,9 +60,8 @@ class Candle extends Model {
     }
 
     static associate(models) {
-        this.hasMany(models.Indicator, {
-            foreignKey: 'id'
-        });
+        this.hasMany(models.Indicator);
+        this.hasMany(models.Order);
     }
 }
 

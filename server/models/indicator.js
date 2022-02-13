@@ -3,6 +3,12 @@ const { Model } = require('sequelize');
 class Indicator extends Model {
     static init(sequelize, DataTypes) {
         return super.init({
+            id : {
+                type: DataTypes.DECIMAL,
+                primaryKey: true,
+                allowNull: false
+            },
+
             currency: {
                 type: DataTypes.STRING,
                 allowNull: false
@@ -20,6 +26,7 @@ class Indicator extends Model {
         },
             {
                 tableName: 'indicators',
+                underscored: true,
                 timestamps: false,
                 sequelize,
             },
@@ -33,4 +40,4 @@ class Indicator extends Model {
     }
 }
 
-module.exports = Indicator;
+module.exports = Indicator
