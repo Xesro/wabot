@@ -7,9 +7,7 @@ const webhookClient = new WebhookClient({ url: webhookURL })
 
 
 /**
- * 
- * @param {*} content 
- * @param {*} type 
+
  */
 function sendMessage(from, content, level) {
     const embed = new MessageEmbed()

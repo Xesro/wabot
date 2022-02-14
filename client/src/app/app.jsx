@@ -1,20 +1,25 @@
-import {Link,BrowserRouter,Routes,Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-function App(){
+import Navbar from "./component/naviguation/naviguation";
+import './app.css';
+import Insight from "./component/insight/insight";
+import StrategyView from "./component/strategy/view/strategy-view";
+function App() {
     return (
-        <div>
+        <div className="app-content">
             <BrowserRouter>
-                <nav>
-                    <Link to="/">Helleeeo</Link> {" ee "}
-                    <Link to="/animaux">ANIMAUX</Link>
-                </nav>
-
+                <Navbar />
+                <div id="main-content">
                 <Routes>
-            </Routes>
-        </BrowserRouter>
+                    <Route path="home" element={<Insight />}/>
+                    <Route path="strategy" element={<StrategyView />}/>
+                    
+                </Routes>
+                </div>
+            </BrowserRouter>
 
 
-    </div>);
+        </div>);
 }
 
-export default App ;
+export default App;

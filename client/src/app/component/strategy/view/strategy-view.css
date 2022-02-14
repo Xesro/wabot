@@ -1,0 +1,36 @@
+#strategy-view {
+    display: grid;
+    grid-template-areas:
+    "date date date"
+    "strat insight logs"
+    "chart chart logs";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20px 2fr 2fr;
+    gap: 10px;
+}
+
+#date{
+    grid-area: date;
+    border-radius: 6px !important;
+}
+
+#logs{
+    grid-area: logs;
+}
+
+#chart{
+    grid-area: chart;
+}
+#strategy-manager{
+    grid-area: strat;
+
+    
+}
+#insight{
+    grid-area: insight;
+}
+
+.grid-item{
+    background-color: rgb(41,46,50);
+    border-radius: 17px;
+}

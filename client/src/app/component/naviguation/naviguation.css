@@ -1,0 +1,43 @@
+#naviguation-item{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+#naviguation-block{
+    width: 90%;
+    min-height: 70px;
+    background-color: rgb(41,46,50);
+    border-radius: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 10px;
+    font-size: 18px;;
+}
+
+
+#links{
+    width: 60%;
+    display: flex;
+    gap: 20px;
+}
+
+#logo{
+    font-size: 31px;
+
+}
+
+
+a{
+    color: #e6dcdc;
+    text-decoration: none;
+
+}
+a:hover{
+    color: #BC6FF1;
+    font-size: 19px;
+}

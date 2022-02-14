@@ -1,0 +1,7 @@
+#slider-range{
+    display: flex;
+    justify-content: center;
+}
+#slider{
+    width: 90%;
+}

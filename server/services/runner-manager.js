@@ -16,12 +16,16 @@ class RunnerManager {
         this.backTestCandleProvider = new BackTestCandleProvider();
     }
 
+    // ajouter les provider autre interface 
+
+
+    // interface 
     /**
      * 
-     * @param {Strategy} strategy 
+     * @param {Strategy} strategy  
      * @param {boolean} back 
      */
-    addLiveStrategy({ strategyName, parameters, currency, money, time_frame }) {
+    addLiveStrategy({  strategyName , parameters, currency, money, time_frame }) {
         let strategyClass = findStrategy(strategyName);
         if (!strategyClass) throw new NoStrategyFoundException(strategyName);
         let strategy = new strategyClass(parameters);
@@ -32,10 +36,15 @@ class RunnerManager {
         // push avec nouveau id 
         //this.strategies.push()
     }
+
     addBackStrategy({ parameters, currency, money, time_frame }) {
         //        const runner = new Runner(new Strategy());
 
     }
+
+
+
+    // interface
     runStrategy(id) {
 
     }
