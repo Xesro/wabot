@@ -19,7 +19,7 @@ app.use(session({
     saveUninitialized:true
 })); // session secret
 
-require('./routes')(app);
+require('./src/routes')(app);
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
