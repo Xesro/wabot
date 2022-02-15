@@ -6,15 +6,22 @@ import {MinusButton, PlusButton} from "../../html-element/custom-button";
 function StrategyManager() {
     const [create, setCreate] = useState(false);
 
-    function update(){
-            console.log("clicked");
-            setCreate(!create);
-        }
+    function update() {
+        console.log("clicked");
+        setCreate(!create);
     }
-    return (<div>
-            <MinusButton behavior = {this.update()} />
-            (create ? <StrategyCreator/> : <StrategyList/>)
-        </div>);
+    if(create) {
+        return (<div>
+            <PlusButton behavior = {update} />
+            <StrategyCreator/>
+        </div>)
+    }
+    else {
+        return (<div>
+            <MinusButton behavior = {update} />
+            <StrategyList/>
+        </div>)
+    }
 }
 
 function StrategyList() {
