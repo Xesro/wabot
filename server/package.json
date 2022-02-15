@@ -4,11 +4,12 @@
   "description": "",
   "author": "Arthur Plebs - William Fernandes",
   "license": "ISC",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js",
+    "start": "node server.ts",
+    "dev": "ts-node-dev server.ts",
+    "watch": "nodemon server.ts",
     "client": "cd ../client && npm start"
   },
   "dependencies": {
@@ -23,11 +24,19 @@
     "node-binance-api": "^0.13.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.12.5",
-    "technicalindicators": "^3.1.0"
+    "sequelize": "^6.16.1",
+    "source-map-loader": "^3.0.1",
+    "technicalindicators": "^3.1.0",
+    "ts-loader": "^9.2.6"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.4",
+    "@types/node": "^17.0.18",
+    "@types/passport": "^1.0.7",
     "nodemon": "^2.0.15",
-    "sequelize-cli": "^6.3.0"
+    "sequelize-cli": "^6.3.0",
+    "ts-node": "^10.5.0",
+    "ts-node-dev": "^1.1.8"
   }
 }

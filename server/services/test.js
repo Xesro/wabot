@@ -1,4 +1,4 @@
-const RunnerManager = require('./runner-manager')
+const RunnerManager = require('./runner-manager.ts')
 
 let runnerManager = new RunnerManager();
 let obj ={
