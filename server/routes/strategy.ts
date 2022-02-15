@@ -7,7 +7,6 @@ const router = express.Router();
  * add new strategy 
  */
 router.post('add', (req:Request, res : Response) => {
-
     strategyController.addStrategy(req,res);
 })
 
