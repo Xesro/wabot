@@ -1,5 +1,129 @@
 
 
-#plus {
 
+button{
+    appearance: inherit;
+    -webkit-writing-mode: inherit!important;
+    word-spacing: inherit;
+    line-height: inherit;
+    text-transform: inherit;
+    text-shadow: inherit;
+    display: inherit;
+    text-align: inherit;
+    align-items: inherit;
+    cursor: inherit;
+    box-sizing: inherit;
+    margin: 0;
+    border-style: inherit;
+    border-image: inherit;
+    border-width: inherit !important;
+    padding: inherit !important;
+}
+
+/**
+ Icons
+ */
+.icon {
+    background-color:grey;
+    border-radius:7px ;
+    width: 20px;
+    height: 20px;
+    padding: 5px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon:hover{
+    background-color: #5c5c5c;
+}
+/**
+    Icons minus
+ */
+
+.icon-minus{
+    width: 10px !important;
+    height: 10px !important;
+}
+
+
+/**
+Plus icons
+ */
+.plus{
+    background-color: white ;
+    position: relative;
+    width:20% ;
+    height: 80%;
+    border-radius: 10%;
+}
+.plus::after{
+    content: "";
+    position: absolute;
+    transform : rotate(90deg);
+    background-color: white ;
+    width:100% ;
+    height: 100%;
+    border-radius: 5%;
+}
+
+
+/**
+Minus icons
+ */
+.minus{
+    background-color: white ;
+    position: relative;
+    width:80% ;
+    height: 20%;
+    border-radius: 10%;
+}
+
+/**
+Break icons
+ */
+.break{
+    background-color: #c01313;
+    width: 20px;
+    height: 20px;
+    border-radius:10% ;
+
+}
+
+
+
+/**
+Play icons
+ */
+.play {
+
+}
+
+
+/**
+Custom Input
+ */
+
+input{
+    background-color: transparent;
+    border: 1px solid #868686;
+    border-radius: 7px;
+    width: 80px;
+    color: white;
+}
+
+.input-field{
+    padding: 5px;
+}
+.input-field::placeholder{
+    color: white;
+}
+
+
+select{
+    background-color: transparent;
+    padding: 5px;
+    border: 1px solid #868686;
+    border-radius: 7px;
+    min-width: 80px;
+    color: white;
 }
