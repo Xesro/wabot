@@ -3,7 +3,7 @@ const Binance = require('node-binance-api');
 const EventEmitter = require('events');
 
 const Order = require('../models').Order;
-const OrderHandler = require('../models/handler/order-handler');
+const OrderHandler = require('../models/handler/OrderHandler');
 
 const limitOrderTimeout = 450000;
 const NEW_ORDER = "newOrder";
