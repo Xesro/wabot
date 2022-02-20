@@ -3,7 +3,7 @@ const Binance = require('node-binance-api');
 const EventEmitter = require('events');
 
 const Order = require('../models').Order;
-const OrderHandler = require('../models/handler/OrderHandler');
+// const OrderHandler = require('../models/handler/OrderHandler');
 
 const limitOrderTimeout = 450000;
 const NEW_ORDER = "newOrder";
@@ -12,8 +12,9 @@ class OrderMaker {
 
     clients = {}
 
-    constructor() {
+    constructor(orderHandler) {
         this.eventEmitter = new EventEmitter()
+        this.orderHandler = orderHandler;
     }
 
     addBinanceClient(strategyId, user, currency ) {
@@ -139,5 +140,6 @@ class OrderMaker {
 
         this.eventEmitter.emit(NEW_ORDER, newOrder)
     }
-
 }
+
+module.exports = OrderMaker

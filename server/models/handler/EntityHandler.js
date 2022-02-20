@@ -1,4 +1,4 @@
-//const logger = require('../../logger/logger.js')
+// const logger = require('../../logger/logger.js')
 
 class entityHandler{
     updateById(fields, id) {
