@@ -11,11 +11,9 @@
       <change beforePath="$PROJECT_DIR$/client/src/app/component/html-element/element.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/html-element/element.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/config/passport/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/passport/passport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/discord/webhook-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/discord/webhook-manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,10 @@
       <workItem from="1644658830887" duration="3157000" />
       <workItem from="1644746290968" duration="2708000" />
       <workItem from="1645002530418" duration="6657000" />
-      <workItem from="1645110346048" duration="4492000" />
+      <workItem from="1645110346048" duration="5661000" />
+      <workItem from="1645274560035" duration="71000" />
+      <workItem from="1645281206602" duration="2792000" />
+      <workItem from="1645350351991" duration="5679000" />
     </task>
     <servers />
   </component>

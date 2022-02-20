@@ -11,13 +11,14 @@ button{
     display: inherit;
     text-align: inherit;
     align-items: inherit;
-    cursor: inherit;
+
     box-sizing: inherit;
     margin: 0;
     border-style: inherit;
     border-image: inherit;
     border-width: inherit !important;
     padding: inherit !important;
+    cursor: pointer;
 }
 
 /**
@@ -126,4 +127,62 @@ select{
     border-radius: 7px;
     min-width: 80px;
     color: white;
+}
+
+
+
+
+/**
+Custom button
+ */
+.button{
+    border-radius: 6px;
+    padding: 5px 0 !important;
+    transition-duration: 0.4s;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+
+}
+
+.button:hover{
+    background-color: transparent;
+}
+
+/**
+Blue button
+ */
+.blue-button{
+    background-color: #008CBA;
+    border: 1px solid #008CBA !important;
+}
+.blue-button:hover{
+    border: 1px solid #008CBA !important;
+}
+
+/**
+Green button
+ */
+.green-button{
+    background-color: #4caf50;
+    border: 1px solid #4caf50 !important;
+}
+
+.green-button:hover{
+    border: 1px solid #4caf50 !important;
+}
+
+
+/**
+Red Button
+ */
+
+.red-button{
+    background-color: #f44336;
+    border: 1px solid #f44336 !important;
+}
+
+.red-button:hover{
+    border: 1px solid #f44336 !important;
 }

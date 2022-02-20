@@ -1,7 +1,8 @@
 #slider-range{
     display: flex;
     justify-content: center;
+    gap:3px;
 }
 #slider{
-    width: 90%;
+    width: 85%;
 }

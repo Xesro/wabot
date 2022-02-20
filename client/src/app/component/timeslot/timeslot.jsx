@@ -15,9 +15,10 @@ function TimeSlot() {
        console.log(event.target.value)
     }
     return (<div id="slider-range">
+        <span> date depart</span>
         <input  onChange={e=> updateSlot(e)} type="range" min={from/1000} max={to/1000}  
                value={from/1000}   id="slider" />
-
+        <span> date fin</span>
     </div>)
 }
 

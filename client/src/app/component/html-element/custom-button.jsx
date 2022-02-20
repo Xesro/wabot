@@ -1,14 +1,49 @@
-
-
 import './element.css'
 
+
+/**
+ * Used to build Custom Button with same design
+ * @param onClick behavior of the button when the user clicks on
+ * @param placeholder display the placeholder
+ * @param additionalClass add another class to the component
+ * @returns {JSX.Element}
+ */
+function Button({onClick,placeholder,additionalClass}) {
+    return (<button type={"button"} className={'button '+additionalClass}onClick={onClick} >{placeholder}</button>)
+
+}
+
+/**
+ * A button with 'Save' word displayed
+ * @param onClick behavior of the button when the user clicks on
+ * @returns {JSX.Element}
+ */
+function SaveButton({onClick}){
+    return <Button onClick={onClick} placeholder={'Save'} additionalClass={'green-button'} />
+
+}
+/**
+ * A button with 'Add' word displayed
+ * @param onClick behavior of the button when the user clicks on
+ * @returns {JSX.Element}
+ */
+function AddButton({onClick}){
+    return <Button onClick={onClick} placeholder={'Add'} additionalClass={'blue-button'} />
+}
+/**
+ * A button with 'Delete' word displayed
+ * @param onClick behavior of the button when the user clicks on
+ * @returns {JSX.Element}
+ */
+function DeleteButton({onClick}){
+    return <Button onClick={onClick} placeholder={'Delete'} additionalClass={'red-button'} />
+}
 
 /**
  * Plus Icon
  * For the moment the size doesn't resize by itself
  * @param oncClick
  * @returns {JSX.Element}
- * @constructor
  */
 function PlusButton ({oncClick}){
     return (<button type='button' className='icon' onClick={oncClick}>
@@ -21,7 +56,6 @@ function PlusButton ({oncClick}){
  * For the moment the size doesn't resize by itself
  * @param oncClick behavior when the user click on
  * @returns {JSX.Element}
- * @constructor
  */
 function MinusButton({oncClick}){
     return (<button type='button' className='icon' onClick={oncClick} >
@@ -34,7 +68,6 @@ function MinusButton({oncClick}){
  * For the moment the size doesn't resize by itself
  * @param oncClick
  * @returns {JSX.Element}
- * @constructor
  */
 function BreakButton({oncClick}){
     return (<button type='button' className='break' onClick={oncClick} />);
@@ -46,27 +79,27 @@ function PlayButton({oncClick}){
     </button>);
 }
 
-function Input({oncClick,placeholder,type}){
-    return <input type={type} className={'input-field'} placeholder={placeholder} onClick={oncClick} />
+function Input({additionalClass,oncClick,placeholder,type}){
+    return <input type={type} className={'input-field '+additionalClass} placeholder={placeholder} onClick={oncClick} />
 }
 
 /**
  * Select Model
+ * @param additionalClass used to add class to select component
  * @param onChange function when the user change the selected options
  * @param placeholder used for the description wrote inside the box
  * @param options an array with value/name pair
  * @returns {JSX.Element}
  */
-function Select({onChange,placeholder,options=[]}){
-    return <select onChange={onChange} >
-        <option className={"none"}>{placeholder}</option>
+function Select({additionalClass,onChange,placeholder,options=[]}){
+    return <select className={additionalClass} onChange={onChange} >
+        <option value={"none"}>{placeholder}</option>
         {options.map((option,index)=> <option  key={index} value={option.value}>{option.name}</option>)}
     </select>
-
 }
 
 
 
-export {PlusButton,MinusButton,BreakButton,Input,Select}
+export {PlusButton,MinusButton,BreakButton,Input,Select,Button,SaveButton,AddButton,DeleteButton}
 
 

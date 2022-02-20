@@ -1,7 +1,8 @@
 import { useState } from "react"
 
 import './strategy-manager.css';
-import {MinusButton, PlusButton,BreakButton,Input,Select} from "../../html-element/custom-button";
+import {MinusButton, PlusButton,Button,SaveButton,BreakButton,
+        Input,Select,AddButton,DeleteButton} from "../../html-element/custom-button";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCurrenciesInfo, selectStrategiesInfo} from "../../../store/strategy-slice";
 
@@ -54,6 +55,7 @@ function StrategyCreator() {
     const [strategy,setStrategy] = useState('none');
     /* Used to display parameters */
     const [show,setShow] = useState(false)
+    const [canDelete,setCanDelete] = useState(false);
 
     const strategies  = useSelector(selectStrategiesInfo);
     const currencies = useSelector(selectCurrenciesInfo);
@@ -64,29 +66,62 @@ function StrategyCreator() {
      * if the strategy is an available strategy, parameters of it are displayed
      * @param event
      */
+
+    /**
+     * Function triggered when the select input changed, used to display deleted button instead of save button when
+     * an existing config is chosen
+     */
+    const updateConfig = (event) => {
+        let value = event.target.value;
+        console.log(value)
+        setCanDelete(value !== 'none');
+
+    }
     const updateStrategy = (event) => {
           let value =  event.target.value;
           setStrategy(value);
           setShow(value !== 'none');
     }
+
+    const save = (event) => {
+
+    }
+
+    const deleteConfig = (event) => {
+
+    }
+    const add = ()=> {
+
+    }
+
     return (
         <form id={"strategy-form"}>
             <section id={"basics"}>
-                <Input placeholder={"money"}/>
-                <Select placeholder={'currency'} options={currencies}/>
-                <Select placeholder={'strategy'} options={strategies} onChange={updateStrategy}/>
+                <Input additionalClass={'third-split'} placeholder={"money"}/>
+                <Select  additionalClass={'third-split'} placeholder={'currency'} options={currencies}/>
+                <Select  additionalClass={'third-split'} placeholder={'strategy'} options={strategies} onChange={updateStrategy}/>
             </section>
             { show &&
                 <section id={"parameters"} >
-                    <Parameters strategy={strategy}/>
+                    <div id={"left"}>
+                        <Configuration strategyName={strategy}/>
+                    </div>
+                    <div id={"right"}>
+                        <Select  onChange={updateConfig} placeholder={"config"} options={[{name:'w',value:'d'}]}/>
+                        {canDelete?<DeleteButton onClick={deleteConfig}/>: <SaveButton onChange={save} />}
+
+                        <AddButton onChange ={add} />
+                    </div>
                 </section>
             }
         </form>);
 }
 
-function Parameters({strategy}){
-        return (<div>
-            parameter
-        </div>)
+function Configuration({strategyName}){
+        return <div>
+
+        </div>
 }
+
+
 export default StrategyManager; 
