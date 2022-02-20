@@ -1,5 +1,5 @@
 const Order = require('../index').Order;
-const EntityHandler = require('./entity-handler')
+const EntityHandler = require('./EntityHandler')
 //const logger = require('../../logger/logger.js')
 
 class OrderHandler extends EntityHandler{

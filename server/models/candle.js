@@ -1,6 +1,6 @@
 const { Model } = require('sequelize');
-const { Sequelize } = require('.');
 const time_frames = { ONE_M: "1m", FIVE_M: "5m", FIFTEEN_M: "15m" }
+
 class Candle extends Model {
     static init(sequelize, DataTypes) {
         return super.init({
