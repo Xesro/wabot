@@ -1,8 +1,15 @@
 #slider-range{
+    height: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap:3px;
 }
 #slider{
-    width: 85%;
+
+
+}
+input[type=range]{
+    -webkit-appearance: slider-vertical;
+    width: 10px;
+    height: 80%;
 }

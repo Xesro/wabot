@@ -1,0 +1,67 @@
+
+#strategy-form{
+    display: grid;
+    grid-template-areas:
+    "money currency strategy"
+    "param param    config  "
+    "param param    action  "
+    "param param    add     ";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 30px 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+#money-element {
+    grid-area: money;
+    width: 100%;
+}
+
+#config-element {
+    grid-area: config;
+}
+#action-element {
+    grid-area: action;
+}
+
+#add-element {
+    grid-area: add;
+}
+
+#currency-element {
+    grid-area: currency;
+}
+
+#strategy-element {
+    grid-area: strategy;
+}
+
+#param-element {
+    grid-area: param;
+    border: 1px solid #868686;
+    min-height: 100px;
+    border-radius: 7px;
+    padding: 3px;
+}
+#maker{
+    padding-top: 15px;
+    height: 100%;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+}
+#adder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.center{
+    position: absolute;
+    top:20px
+}

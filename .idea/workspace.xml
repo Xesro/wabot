@@ -5,15 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6239a366-8a73-4c79-bf74-8318c8e74e19" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/app/component/logs/logs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/component/logs/logs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/handler/strategy-handler.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/handler/strategy-handler.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/maker/strategy-maker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/maker/strategy-maker.jsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client/src/app/store/strategy-slice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/component/html-element/custom-button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/html-element/custom-button.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/component/html-element/element.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/html-element/element.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/login-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/login-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/strategy-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/strategy-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/discord/webhook-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/discord/webhook-manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dto/candle-dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dto/candle-dto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/event/candle-event.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/event/candle-event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/logger/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/logger/logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/migrations/20220113230158-User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/migrations/20220113230158-User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/migrations/20220205154524-Candle.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/migrations/20220205154524-Candle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/migrations/20220205154525-Indicator.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/migrations/20220205154525-Indicator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/candle.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/candle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/indicator.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/indicator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/provider/backtest-candle-provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/provider/backtest-candle-provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/provider/candle-provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/provider/candle-provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/provider/live-candle-provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/provider/live-candle-provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/strategy.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/strategy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/runner/runner.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/runner/runner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/seeders/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/seeders/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/runner-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/runner-manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/services/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/strategies/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/strategies/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/strategies/strategy-exception.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/strategies/strategy-exception.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/strategies/strategy.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/strategies/strategy.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +95,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/app/component/strategy/manager" />
+      <recent name="$PROJECT_DIR$/client/src/app/component/strategy/maker" />
+      <recent name="$PROJECT_DIR$/client/src/app/component/strategy/handler" />
+      <recent name="$PROJECT_DIR$/client/src/app/component/strategy" />
       <recent name="$PROJECT_DIR$/server" />
     </key>
   </component>
@@ -77,7 +121,9 @@
       <workItem from="1645110346048" duration="5661000" />
       <workItem from="1645274560035" duration="71000" />
       <workItem from="1645281206602" duration="2792000" />
-      <workItem from="1645350351991" duration="5679000" />
+      <workItem from="1645350351991" duration="20084000" />
+      <workItem from="1645475123415" duration="905000" />
+      <workItem from="1645651694662" duration="5346000" />
     </task>
     <servers />
   </component>

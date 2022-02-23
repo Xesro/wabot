@@ -1,6 +1,6 @@
 
 const { MessageEmbed, WebhookClient } = require('discord.js');
-const { webhookURL } = require('../../config/config.json').discord
+const { webhookURL } = require('../config/config.json').discord
 
 const webhookClient = new WebhookClient({ url: webhookURL })
 
