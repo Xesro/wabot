@@ -22,9 +22,27 @@ CREATE TABLE IF NOT EXISTS `candles` (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `indicators` (
+    `id` INTEGER NOT NULL auto_increment ,
     `candle_id` INTEGER NOT NULL,
-    `currency` VARCHAR(255) NOT NULL,
+    `currency` VARCHAR(10) NOT NULL,
     `date` DATETIME NOT NULL,
     `data` JSON NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`candle_id`) REFERENCES `candles` (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `orders` (
+    `id` INTEGER NOT NULL auto_increment ,
+    `candle_id` INTEGER NOT NULL,
+    `username` VARCHAR(255) NOT NULL,
+    `type` VARCHAR(15) NOT NULL,
+    `side` VARCHAR(10) NOT NULL,
+    `currency` VARCHAR(10) NOT NULL,
+    `price` DECIMAL(10,2) NOT NULL,
+    `quantity` DECIMAL(10,2) NOT NULL,
+    `stop_price` DECIMAL(10,2) NOT NULL,
+    `strategy_id` VARCHAR(255) NOT NULL,
+    `status`ENUM("canceled", "executed"),
+    PRIMARY KEY (`id`),
     FOREIGN KEY (`candle_id`) REFERENCES `candles` (`id`)
 ) ENGINE=InnoDB;
