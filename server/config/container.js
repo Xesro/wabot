@@ -9,9 +9,22 @@ containerConfig = {
             }
         ],
         [
+            './models/manager/*.js',
+            {
+                lifetime: awilix.Lifetime.TRANSIENT,
+            }
+        ],
+        [
             './api/*.js',
             {
                 lifetime: awilix.Lifetime.TRANSIENT,
+            }
+        ],
+        [
+            './services/profitCalculator',
+            {
+                lifetime: awilix.Lifetime.TRANSIENT,
+                register: awilix.asFunction
             }
         ],
     ],

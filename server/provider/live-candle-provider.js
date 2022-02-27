@@ -29,6 +29,8 @@ class LiveCandleProvider extends CandleProvider {
       // console.info("volume: " + volume);
       // console.info("isFinal: " + isFinal);
 
+      // retourner une candle et l'enregistrer en db
+
       event.emit(subscription.eventName, new CandleDTO(currency, time_frame, ticks))
 
     }

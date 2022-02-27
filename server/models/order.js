@@ -6,7 +6,9 @@ class Order extends Model {
             {
                 id: {
                     primaryKey: true,
-                    type: DataTypes.DECIMAL,
+                    type: DataTypes.INTEGER,
+                    autoIncrement: true,
+                    allowNull: false,
                 },
 
                 username: {
@@ -31,14 +33,23 @@ class Order extends Model {
 
                 price: {
                     type: DataTypes.DECIMAL,
+                    allowNull: true,
+                    default: null
                 },
 
                 quantity: {
                     type: DataTypes.DECIMAL,
+                    allowNull: false,
                 },
 
                 stopPrice: {
                     type: DataTypes.DECIMAL,
+                    default: null
+                },
+
+                leverage: {
+                    type: DataTypes.INTEGER,
+                    allowNull: false,
                 },
 
                 strategyId: {
@@ -47,9 +58,25 @@ class Order extends Model {
                 },
 
                 status: {
-                    type: DataTypes.ENUM("canceled", "executed"),
-                    default: false
-                }
+                    type: DataTypes.ENUM(this.orderStatus.CANCEL, this.orderStatus.CLOSE, this.orderStatus.OPEN),
+                    allowNull: false,
+                },
+
+                gain: {
+                    type: DataTypes.DECIMAL,
+                    default: null
+                },
+
+                fees: {
+                    type: DataTypes.DECIMAL,
+                    default: null
+                },
+
+                accountBalance: {
+                    type: DataTypes.DECIMAL,
+                    default: null
+                },
+
 
             },
             {
@@ -66,6 +93,12 @@ class Order extends Model {
             foreignKey: 'candle_id'
         });
     }
+
+    static orderStatus = {
+        CANCEL: "cancel",
+        OPEN: "open",
+        CLOSE: "close"
+    }
 }
 
-module.exports = Order;
+module.exports = Order
