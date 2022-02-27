@@ -36,12 +36,18 @@ app.listen(PORT, err => {
 const awilix  = require('awilix')
 const containerConfig = require('./config/container')
 
-const container = awilix.createContainer()
+const container = awilix.createContainer();
 
 container.loadModules(
     containerConfig.globPattern,
     containerConfig.options
 )
+
 // SETUP CONTAINER
 
-module.export = app;
+module.exports = {
+    app,
+    container
+}
+
+let test = require('./test')

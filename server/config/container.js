@@ -2,13 +2,18 @@ const awilix  = require('awilix')
 
 containerConfig = {
     globPattern: [
-        './api/*.js',
         [
             './models/handler/*.js',
             {
                 lifetime: awilix.Lifetime.TRANSIENT,
             }
-        ]
+        ],
+        [
+            './api/*.js',
+            {
+                lifetime: awilix.Lifetime.TRANSIENT,
+            }
+        ],
     ],
 
     options: {
