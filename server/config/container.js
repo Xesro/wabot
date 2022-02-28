@@ -20,13 +20,6 @@ containerConfig = {
                 lifetime: awilix.Lifetime.TRANSIENT,
             }
         ],
-        [
-            './services/profitCalculator',
-            {
-                lifetime: awilix.Lifetime.TRANSIENT,
-                register: awilix.asFunction
-            }
-        ],
     ],
 
     options: {

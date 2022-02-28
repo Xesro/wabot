@@ -42,7 +42,6 @@ container.loadModules(
     containerConfig.globPattern,
     containerConfig.options
 )
-
 // SETUP CONTAINER
 
 module.exports = {

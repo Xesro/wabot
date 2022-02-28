@@ -3,6 +3,7 @@ const logger = require("../logger/logger");
 const EventEmitter = require("events");
 const Binance = require("node-binance-api");
 const order = require('../models').Order
+const profitCalculator = require('../services/profitCalculator')
 
 /**
  * @description Event name
@@ -24,10 +25,9 @@ class AbstractClient {
     limitFees = 0
     marketFees = 0
 
-    constructor(orderHandler, profitCalculator) {
+    constructor(orderHandler) {
         this.eventEmitter = new EventEmitter()
         this.orderHandler = orderHandler;
-        this.profitCalculator = profitCalculator
     }
 
     /**
@@ -79,7 +79,7 @@ class AbstractClient {
             status: status,
             fees: fees,
             accountBalance: accountBalance,
-            gain : status === Order.orderStatus.CLOSE ? this.profitCalculator(price, accountBalance, fees, this.strategyId) : null
+            gain : status === Order.orderStatus.CLOSE ? profitCalculator(price, accountBalance, fees, this.strategyId) : null
         })
 
         if (type === 'LIMIT') {
@@ -106,7 +106,7 @@ class AbstractClient {
                 let updatedOrder = this.orderHandler.updateStopOrder(
                     orderId,
                     order.price,
-                    this.profitCalculator(
+                    profitCalculator(
                         order.price, this.getBalance(),
                         this.calculateFees(order.price, order.type),
                         this.strategyId
@@ -140,7 +140,7 @@ class AbstractClient {
             let accountBalance = this.getBalance()
             let updatedOrder = await this.orderHandler.updateCanceledLimitOrder(
                 orderId,
-                this.profitCalculator(null, accountBalance, null, this.strategyId),
+                profitCalculator(null, accountBalance, null, this.strategyId),
                 accountBalance
             )
             this.eventEmitter.emit(NEW_ORDER, updatedOrder)
