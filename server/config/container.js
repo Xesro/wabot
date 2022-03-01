@@ -9,6 +9,12 @@ containerConfig = {
             }
         ],
         [
+            './models/manager/*.js',
+            {
+                lifetime: awilix.Lifetime.TRANSIENT,
+            }
+        ],
+        [
             './api/*.js',
             {
                 lifetime: awilix.Lifetime.TRANSIENT,

@@ -1,5 +1,8 @@
 const Binance = require("node-binance-api");
 const {container} = require("./server")
+const {Order} = require("./models");
+const logger = require("./logger/logger");
+const profitCalculator = require('./services/profitCalculator')
 
 const apiKey = "558700f186327cdc5cd9db8e95b9075b20fe2ef3ffbd7b1d86ec9dfa6b088dfe";
 const secretKey = "329e6a419d551f0e4b77cc497dbca3736f4a6ddc8878414965c67322c199cb66";
@@ -19,9 +22,18 @@ async function getOrderStatus(orderId) {
 }
 
 async function buy(){
+
     //execute un ordre market pour les tests
-    let order =  await binance.futuresBuy( 'ETHUSDT', 1, null, {type : 'MARKET', undefined, newOrderRespType: 'RESULT'});
-    console.log(order);
+
+    // let marketOrder = await binance.futuresBuy( 'ETHUSDT', 1, null, {type : 'MARKET', newOrderRespType: 'RESULT'});
+    // console.log(marketOrder)
+    // let order =  await binance.futuresSell( 'ETHUSDT', 1, null, {stopPrice: 2800, type : 'STOP_MARKET'});
+    //
+    // console.log(order)
+
+    console.log(await binance.futuresOrderStatus('ETHUSDT', {orderID : 832120783, }))
+
+    // console.log(await binance.futuresOrderStatus('ETHUSDT', {orderID : order.orderId }));
 
 /** LIMIT STOP MARKET STOP_MARKET TAKE_PROFIT TAKE_PROFIT_MARKET **/
 
@@ -55,6 +67,6 @@ async function buy(){
 
 }
 
-//buy()
+buy()
 
 

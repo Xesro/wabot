@@ -10,7 +10,7 @@ class Runner {
         this.launched = true;
     }
     subscribe(nameEvent) {
-        event.on(nameEvent, async (candleDTO) => {
+        event.on(nameEvent, async (candleDTO) => { // remplacer le candleDto par une entity candle
             if (this.launched) {
                await this.strategy.listen(candleDTO);
             }
