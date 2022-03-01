@@ -4,6 +4,7 @@ const EventEmitter = require("events");
 const Binance = require("node-binance-api");
 const order = require('../models').Order
 const profitCalculator = require('../services/profitCalculator')
+const eventEmitter = require("events");
 
 /**
  * @description Event name
@@ -20,10 +21,12 @@ class AbstractClient {
     strategyId = null
     currency = null
     user = null
-    candleId = null
+    candle = null
     leverage = null
     limitFees = 0
     marketFees = 0
+    backtest = false
+    candleEventName = null
 
     constructor(orderHandler) {
         this.eventEmitter = new EventEmitter()
@@ -63,13 +66,13 @@ class AbstractClient {
                  }
     ) {
         let fees = price ? this.calculateFees(price, type) : null
-        let accountBalance = price ? this.getBalance() : null
+        let accountBalance = price && !this.backtest ? this.getBalance() : null
 
         let orderId = await this.orderHandler.createOrder({
             strategyId: this.strategyId,
             currency: this.user.currency,
             username: this.user.username,
-            candleId: this.candleId,
+            candleId: this.candle.id,
             leverage: this.leverage,
             side: side,
             type: type,
@@ -82,12 +85,18 @@ class AbstractClient {
             gain : status === Order.orderStatus.CLOSE ? profitCalculator(price, accountBalance, fees, this.strategyId) : null
         })
 
-        if (type === 'LIMIT') {
+        if (type === 'LIMIT' && !this.backtest) {
             this.hasBeenFullyExecuted()
         }
 
         if (type !== 'MARKET' || type !== 'LIMIT') {
-            this.watchUnexecutedOrder(brokerOrderId, brokerOrderId)
+            if (!this.backtest) {
+                this.watchUnexecutedOrder(brokerOrderId, orderId)
+            }
+
+            if (this.backtest) {
+                this.simulateStopOrder()
+            }
         }
 
         return orderId
@@ -101,23 +110,47 @@ class AbstractClient {
     watchUnexecutedOrder(brokerOrderId, orderId) {
         let intervalId = setInterval(async () => {
             let order = await this.getOrderStatus(brokerOrderId)
-            if (order.status) {
-                this.eventEmitter.emit(STOP_ORDER_TRIGGERED, orderId, this.strategyId)
-                let updatedOrder = this.orderHandler.updateStopOrder(
-                    orderId,
-                    order.price,
-                    profitCalculator(
-                        order.price, this.getBalance(),
-                        this.calculateFees(order.price, order.type),
-                        this.strategyId
-                    )
-                )
-                this.eventEmitter.emit(NEW_ORDER, updatedOrder)
+
+            if(order.status === this.executionStatus.canceled) {
+                clearInterval(intervalId)
+            }
+
+            if (order.status === this.executionStatus.executed) {
+                this.stopOrderTriggerred(orderId, order.price, order.type)
                 clearInterval(intervalId)
             }
         }, watchOrderInterval)
     }
 
+    stopOrderTriggerred(orderId, price, type) {
+        this.eventEmitter.emit(STOP_ORDER_TRIGGERED, orderId, this.strategyId)
+        let updatedOrder = this.orderHandler.updateStopOrder(
+            orderId,
+            price,
+            profitCalculator(
+                price,
+                this.getBalance(),
+                this.calculateFees(price, type),
+                this.strategyId
+            )
+        )
+        this.eventEmitter.emit(NEW_ORDER, updatedOrder)
+    }
+
+    simulateStopOrder(orderId, stopPrice, side, type) {
+        if ((side === "buy" && type.contains("TAKE_PROFIT")) || // Take profit on short
+            (side === "sell" && type.contains("STOP"))) { // Stop loss on long
+            if (this.candle.low < stopPrice) {
+                this.stopOrderTriggerred(orderId, stopPrice, type)
+            }
+        }
+        if ((side === "sell" && type.contains("TAKE_PROFIT")) || //Take profit on long
+            (side === "buy" && type.contains("STOP"))) { //Stop loss on short
+            if (this.candle.high > stopPrice) {
+                this.stopOrderTriggerred(orderId, stopPrice, type)
+            }
+        }
+    }
 
     /**
      * @description check if the limit order has been fully executed within the timeout time
@@ -156,6 +189,11 @@ class AbstractClient {
         return type === type.toLowerCase().includes('market') ?
             this.marketFees * this.leverage * price :
             this.limitFees * this.leverage * price
+    }
+
+    executionStatus = {
+        canceled: "CANCELED",
+        executed: "EXECUTED"
     }
 
     /** @abstract */

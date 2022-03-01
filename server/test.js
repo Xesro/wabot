@@ -27,11 +27,11 @@ async function buy(){
 
     // let marketOrder = await binance.futuresBuy( 'ETHUSDT', 1, null, {type : 'MARKET', newOrderRespType: 'RESULT'});
     // console.log(marketOrder)
-    // let order =  await binance.futuresSell( 'ETHUSDT', 1, null, {stopPrice: marketOrder.avgPrice - 1, type : 'STOP_MARKET'});
+    // let order =  await binance.futuresSell( 'ETHUSDT', 1, null, {stopPrice: 2800, type : 'STOP_MARKET'});
     //
     // console.log(order)
 
-    // console.log(await binance.futuresOrderStatus('ETHUSDT', {orderID : 831875862, }))
+    console.log(await binance.futuresOrderStatus('ETHUSDT', {orderID : 832120783, }))
 
     // console.log(await binance.futuresOrderStatus('ETHUSDT', {orderID : order.orderId }));
 

@@ -8,8 +8,8 @@ const eventEmitter = require('events')
  */
 const orderType = {
     LIMIT: 'LIMIT',
-    STOP: 'STOP',
     MARKET: 'MARKET',
+    STOP: 'STOP',
     STOP_MARKET: 'STOP_MARKET',
     TAKE_PROFIT: 'TAKE_PROFIT',
     TAKE_PROFIT_MARKET: 'TAKE_PROFIT_MARKET'
@@ -24,7 +24,7 @@ class BinanceClient extends AbstractClient {
         super(orderHandler);
     }
 
-    init(user, currency, strategyName, eventName, backtest) {
+    init(user, currency, strategyName, eventName) {
         this.binance = new Binance().options({
             APIKEY: user.apiKey,
             APISECRET: user.secretKey,
@@ -32,10 +32,10 @@ class BinanceClient extends AbstractClient {
 
         this.currency = currency;
         this.user = user;
-        this.strategyId = strategyName + '_' + Date.now() + backtest ? '_backtest' : ''
+        this.strategyId = strategyName + '_' + Date.now()
 
         eventEmitter.on(eventName, (candle) => {
-            this.candleId = candle.id
+            this.candle = candle
         })
 
         return this;
@@ -60,14 +60,14 @@ class BinanceClient extends AbstractClient {
         let order = await this.binance.futuresBuy(
             this.currency,
             quantity,
-            type ===  orderType.MARKET ? null : price,
+            type === orderType.MARKET ? null : price,
             this.getParams(type, stopPrice)
         );
 
         return await this.emitNewOrder({
             type: type,
             side: "buy",
-            price: orderType.MARKET ? order.avgPrice : price,
+            price: type === orderType.MARKET ? order.avgPrice : price,
             quantity : quantity,
             stopPrice: stopPrice,
             status : status,
@@ -76,21 +76,22 @@ class BinanceClient extends AbstractClient {
     }
 
     async sell(quantity, price, status, type, stopPrice, ) {
+
         let order = await this.binance.futuresSell(
             this.currency,
             quantity,
-            type ===  orderType.MARKET ? null : price,
+            type === orderType.MARKET ? null : price,
             this.getParams(type, stopPrice)
         );
 
         return await this.emitNewOrder({
             type: type,
             side: "sell",
-            price: orderType.MARKET ? order.avgPrice : price,
+            price: type === orderType.MARKET ? order.avgPrice : price,
             quantity : quantity,
             stopPrice: stopPrice,
             status : status,
-            brokerOrderId : order.orderID
+            brokerOrderId :  order.orderID
         })
     }
 
@@ -118,12 +119,27 @@ class BinanceClient extends AbstractClient {
         return this.sell(quantity, null, order.orderStatus.CLOSE, orderType.STOP_MARKET, stopPrice)
     }
 
+    /**
+     * @param quantity
+     * @param price
+     * @param type TAKE_PROFIT ou TAKE_PROFIT_MARKET
+     * @param stopPrice
+     * @return {Promise<*>}
+     */
     async setLongTakeProfit(quantity, price, type, stopPrice) {
         return this.sell(quantity, null, order.orderStatus.CLOSE, type, stopPrice)
     }
 
+    /**
+     *
+     * @param quantity
+     * @param price
+     * @param type TAKE_PROFIT ou TAKE_PROFIT_MARKET
+     * @param stopPrice
+     * @return {Promise<*>}
+     */
     async setShortTakeProfit(quantity, price, type, stopPrice) {
-        return this.sell(quantity, null,order.orderStatus.CLOSE,  type, stopPrice)
+        return this.buy(quantity, null,order.orderStatus.CLOSE,  type, stopPrice)
     }
 
     async getPositions(strategyId) {
@@ -135,6 +151,7 @@ class BinanceClient extends AbstractClient {
             this.currency,
             leverage
         )
+
         this.leverage = leverage
         //check le res
     }
@@ -142,11 +159,6 @@ class BinanceClient extends AbstractClient {
     async cancelAllOrders() {
         let res = await this.binance.cancelAll(this.currency);
         //check le res
-    }
-
-    async OrderIsExecuted(orderId) {
-        let order = await this.binance.futuresOrderStatus(this.currency, {orderID : orderId })
-        return order.origQty === order.executedQty;
     }
 
     async getOrderStatus(orderId) {
@@ -166,6 +178,14 @@ class BinanceClient extends AbstractClient {
     }
 
     normalizeOrder(order) {
+        let status = null
+        if (order.status === "CANCELED") {
+            status = this.executionStatus.canceled
+        }
+        else if (order.origQty === order.executedQty){
+            status = this.executionStatus.executed
+        }
+
         return {
             orderId: order.orderId,
             symbol: order.symbol,
@@ -174,7 +194,7 @@ class BinanceClient extends AbstractClient {
             closePosition: false,
             side: order.side,
             stopPrice: order.stopPrice,
-            status: order.origQty === order.executedQty,
+            status: status,
             // clientOrderId: 'LWQS6ZKjSspOmAW1sewvi6',
             // avgPrice: '0.00000',
             // origQty: ,
