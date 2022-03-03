@@ -32,4 +32,22 @@ app.listen(PORT, err => {
     console.log(`Your server is ready ! Listen on port : ${PORT}`);
 });
 
-module.export = app;
+// SETUP CONTAINER
+const awilix  = require('awilix')
+const containerConfig = require('./config/container')
+
+const container = awilix.createContainer();
+
+container.loadModules(
+    containerConfig.globPattern,
+    containerConfig.options
+)
+
+// SETUP CONTAINER
+
+module.exports = {
+    app,
+    container
+}
+
+let test = require('./test')

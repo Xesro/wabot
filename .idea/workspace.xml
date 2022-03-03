@@ -5,35 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6239a366-8a73-4c79-bf74-8318c8e74e19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/component/chart/chart.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/component/logs/logs.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/component/logs/logs.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/handler/strategy-handler.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/handler/strategy-handler.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/maker/strategy-maker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/component/strategy/maker/strategy-maker.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/store/candle-slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/store/log-slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/store/strategy-slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/candleController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/candles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/html-element/custom-button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/html-element/custom-button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/html-element/element.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/html-element/element.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/naviguation/naviguation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/manager/strategy-manager.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/strategy/view/strategy-view.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/component/timeslot/timeslot.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/login-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/loginController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/provider/live-candle-provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/provider/live-candle-provider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/AbstractClient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/BinanceClient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/ClientFactory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/config/container.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/handler/EntityHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/handler/OrderHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/create_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/candle.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/candle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/indicator.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/indicator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/node-binance-api/examples/advanced.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/node-binance-api/examples/advanced.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -111,7 +103,7 @@
       <workItem from="1645978445715" duration="1734000" />
       <workItem from="1646173859850" duration="130000" />
       <workItem from="1646254810277" duration="3505000" />
-      <workItem from="1646323823073" duration="2853000" />
+      <workItem from="1646323823073" duration="3210000" />
     </task>
     <servers />
   </component>

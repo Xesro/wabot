@@ -20,12 +20,12 @@ class User extends Model {
                     allowNull: false
                 },
 
-                api_key: {
+                apiKey: {
                     type: DataTypes.STRING,
                     allowNull: false,
                 },
 
-                secret_key: {
+                secretKey: {
                     type: DataTypes.STRING,
                     allowNull: false,
                 },
@@ -33,6 +33,7 @@ class User extends Model {
             {
                 tableName: 'users',
                 timestamps: false,
+                underscored: true,
                 sequelize,
             },
         );
