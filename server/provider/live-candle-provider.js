@@ -29,7 +29,7 @@ class LiveCandleProvider extends CandleProvider {
       // console.info("volume: " + volume);
       // console.info("isFinal: " + isFinal);
 
-      event.emit(subscription.eventName, new CandleDTO(currency, time_frame, ticks))
+      event.emit(subscription.eventName,ticks)
 
     }
     this.binance.futuresSubscribe(`${currency}@kline_${time_frame}`, callback);

@@ -1,0 +1,74 @@
+
+.logs{
+
+}
+
+.main{
+    padding-top: 15px;
+    overflow: hidden;
+}
+.log-message{
+    padding: 10px;
+    height: 90px;
+    background-color: rgba(38, 38, 44, 0.66);
+    border-radius: 7px ;
+    grid-template-areas:
+            " header   header   date "
+            " price    stop     date "
+            " quantity profit   date ";
+    grid-template-columns:  2fr 2fr 15px;
+    grid-template-rows: 1fr 1fr 1fr ;
+
+    display: grid;
+    overflow: hidden;
+
+}
+
+
+.log-message:not(.log-message:last-child){
+    margin-bottom: 5px;
+}
+.status{
+    grid-area: status;
+}
+.positive{
+    color: #02af6d;
+}
+.negative{
+    color: #982a2a;
+}
+.item{
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+}
+
+
+.top-log{
+    grid-area: header;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+
+.date{
+    grid-area: date;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    font-size: 12px;
+}
+.price{
+    grid-area: price;
+}
+.stop{
+    grid-area: stop;
+}
+
+.quantity{
+    grid-area: quantity;
+}
+.profit{
+    grid-area: profit;
+}
+

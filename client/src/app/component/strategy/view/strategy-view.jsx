@@ -15,7 +15,7 @@ function StrategyView() {
             <StrategyMaker/>
         </section>
         <section id="insight" className='grid-item'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quibusdam sint autem sit placeat pariatur temporibus consequatur deleniti, incidunt excepturi, consequuntur facere repellendus deserunt voluptates assumenda, iusto error harum culpa.
+
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, beatae modi. Ex quidem quasi quas ipsam nesciunt incidunt cumque nobis tempore culpa! Laborum rem dignissimos magni! Non reprehenderit nulla similique!
         </section>
         <section id="logs" className='grid-item'>

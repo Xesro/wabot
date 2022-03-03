@@ -68,7 +68,6 @@ function Maker(){
     const strategies = useSelector(selectStrategiesInfo);
     const currencies = useSelector(selectCurrenciesInfo);
 
-
     const save = (event) => {
 
     }
